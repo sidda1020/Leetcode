@@ -15,6 +15,15 @@ Input: nums = [-3,-2,-1,0,0,1,2]
 Output: 3
 Explanation: There are 2 positive integers and 3 negative integers. The maximum count among them is 3.
 '''
+
+# Approach 1 if interviewer is ok to use inbuilt methods/functions
+class Solution:
+    def maximumCount(self, nums: List[int]) -> int:
+         neg_count = bisect_right(nums, -1)
+         pos_count = len(nums) - bisect_right(nums, 0)
+         return max(neg_count, pos_count)
+
+# Approach 2 if interviewer is not ok to use inbuilt functions
 class Solution:
     def maximumCount(self, nums: List[int]) -> int:
         # Find the first positive number's index
